@@ -18,6 +18,8 @@ import { getNeighbourhood, linkMidpoint } from "@/lib/graph/highlight";
 const W = 1000;
 const H = 640;
 
+const DRAG_THRESHOLD = 6;
+
 const KIND_COLOR: Record<string, string> = {
   ontology: "var(--color-gold)",
   stream: "var(--color-white)",
@@ -74,7 +76,7 @@ const nodeY = (n: SimNode) => (typeof n.y === "number" ? n.y : 0);
 export default function MethodologyGraph({ data }: { data: GraphData }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const simRef = useRef<ReturnType<typeof forceSimulation<SimNode>> | null>(null);
-  const dragRef = useRef<{ id: string } | null>(null);
+  const dragRef = useRef<{ id: string; startX: number; startY: number; captured: boolean } | null>(null);
 
   const [reduced, setReduced] = useState(false);
   const [, setFrame] = useState(0);
@@ -158,42 +160,50 @@ export default function MethodologyGraph({ data }: { data: GraphData }) {
 
   const beginDrag = (e: React.PointerEvent, n: SimNode) => {
     if (reduced) return;
-    e.preventDefault();
-    svgRef.current?.setPointerCapture(e.pointerId);
-    dragRef.current = { id: n.id };
     const p = toViewBox(svgRef.current!, e.clientX, e.clientY);
-    n.fx = p.x;
-    n.fy = p.y;
-    simRef.current?.alphaTarget(0.3).restart();
-  };
-
-  const moveDrag = (e: React.PointerEvent, n: SimNode) => {
-    if (dragRef.current?.id !== n.id) return;
-    const p = toViewBox(svgRef.current!, e.clientX, e.clientY);
-    n.fx = p.x;
-    n.fy = p.y;
-  };
-
-  const endDrag = (e: React.PointerEvent, n: SimNode) => {
-    if (dragRef.current?.id !== n.id) return;
-    dragRef.current = null;
-    n.fx = null;
-    n.fy = null;
-    simRef.current?.alphaTarget(0);
+    dragRef.current = { id: n.id, startX: p.x, startY: p.y, captured: false };
   };
 
   const dragMove = (e: React.PointerEvent) => {
-    const id = dragRef.current?.id;
-    if (!id) return;
-    const n = nodes.find((c) => c.id === id);
-    if (n) moveDrag(e, n);
+    const d = dragRef.current;
+    if (!d) return;
+    const n = nodes.find((c) => c.id === d.id);
+    const svg = svgRef.current;
+    if (!n || !svg) return;
+    const p = toViewBox(svg, e.clientX, e.clientY);
+
+    if (!d.captured) {
+      if (Math.hypot(p.x - d.startX, p.y - d.startY) < DRAG_THRESHOLD) return;
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch {
+        // capture unavailable — keep tracking via bubbling moves
+      }
+      d.captured = true;
+      n.fx = p.x;
+      n.fy = p.y;
+      simRef.current?.alphaTarget(0.3).restart();
+      return;
+    }
+
+    n.fx = p.x;
+    n.fy = p.y;
   };
 
-  const dragEnd = (e: React.PointerEvent) => {
-    const id = dragRef.current?.id;
-    if (!id) return;
-    const n = nodes.find((c) => c.id === id);
-    if (n) endDrag(e, n);
+  const dragEnd = () => {
+    const d = dragRef.current;
+    if (!d) return;
+    dragRef.current = null;
+    const n = d.captured ? nodes.find((c) => c.id === d.id) : null;
+    if (n) {
+      n.fx = null;
+      n.fy = null;
+      simRef.current?.alphaTarget(0);
+    }
+  };
+
+  const clearOnCanvasClick = (e: React.MouseEvent<SVGSVGElement>) => {
+    if (e.target === e.currentTarget) setSelected(null);
   };
 
   const selectedNode = selected ? nodes.find((n) => n.id === selected) : null;
@@ -209,6 +219,8 @@ export default function MethodologyGraph({ data }: { data: GraphData }) {
         style={{ touchAction: "none" }}
         onPointerMove={dragMove}
         onPointerUp={dragEnd}
+        onPointerCancel={dragEnd}
+        onClick={clearOnCanvasClick}
       >
         <g>
           {links.map((l) => {
