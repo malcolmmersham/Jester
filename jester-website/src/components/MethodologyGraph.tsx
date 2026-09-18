@@ -312,7 +312,7 @@ export default function MethodologyGraph({ data }: { data: GraphData }) {
                   transition: "opacity 0.15s ease",
                   userSelect: "none",
                 }}
-onPointerDown={(e) => beginDrag(e, n)}
+                onPointerDown={(e) => beginDrag(e, n)}
                 onPointerEnter={() => setHovered(n.id)}
                 onPointerLeave={() => setHovered((h) => (h === n.id ? null : h))}
                 onClick={() => setSelected(isSelected ? null : n.id)}
@@ -347,6 +347,13 @@ onPointerDown={(e) => beginDrag(e, n)}
           })}
         </g>
       </svg>
+
+      <p className="sr-only">
+        A network map of Jester&rsquo;s methodology — the concepts your work is
+        grounded in, the streams that deliver it, and the relationships that
+        connect them. Sixteen nodes linked by twenty-two relationships such as
+        grounds, powers, serves, and embeds.
+      </p>
 
       {selectedNode && (
         <div className="absolute right-4 top-4 w-72 border border-hairline bg-white p-5">
