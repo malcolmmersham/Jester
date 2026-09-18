@@ -37,7 +37,7 @@ export default function Nav() {
             className="h-8 w-8"
             priority
           />
-          <span className="text-lg font-bold tracking-tight text-royal">
+          <span className="font-display text-lg font-semibold tracking-tight text-cream">
             Jester
           </span>
         </Link>
@@ -109,12 +109,12 @@ export default function Nav() {
         </div>
 
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-md border border-border lg:hidden"
+          className="flex h-9 w-9 items-center justify-center border border-cream/25 lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
         >
-          <svg className="h-4 w-4 text-royal" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {mobileOpen ? (
               <path d="M6 6l12 12M18 6L6 18" />
             ) : (
@@ -125,9 +125,9 @@ export default function Nav() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-cream px-4 py-4 lg:hidden">
+        <div className="border-t border-cream/15 bg-ink px-4 py-4 lg:hidden">
           <nav className="flex flex-col gap-1" aria-label="Mobile">
-            <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Services</p>
+            <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-widest text-gold">Services</p>
             {SERVICES.map((s) => (
               <Link
                 key={s.href}
@@ -138,8 +138,8 @@ export default function Nav() {
                 {s.label}
               </Link>
             ))}
-            <div className="my-2 border-t border-border" />
-            <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Insights</p>
+            <div className="my-2 border-t border-cream/15" />
+            <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-widest text-gold">Insights</p>
             {INSIGHTS.map((s) => (
               <Link
                 key={s.href}
@@ -150,7 +150,7 @@ export default function Nav() {
                 {s.label}
               </Link>
             ))}
-            <div className="my-2 border-t border-border" />
+            <div className="my-2 border-t border-cream/15" />
             <Link href="/about" className="nav-link" onClick={() => setMobileOpen(false)}>
               About
             </Link>

@@ -37,6 +37,7 @@ export default function Home() {
   return (
     <main>
       <Hero
+        fullHeight
         eyebrow="Advisory · Workshops · Capability"
         heading={
           <>
@@ -91,7 +92,7 @@ export default function Home() {
               href="/advisory"
               highlight
             >
-              <div className="mt-5 pt-4 border-t text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-amber)" }}>
+              <div className="mt-5 border-t border-border pt-4 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold-deep)" }}>
                 Fractional retainer · from $1,500/day
               </div>
             </Card>
@@ -101,7 +102,7 @@ export default function Home() {
               description="Build capability in professionals who aren't technical but need to work confidently with data, strategy, and AI."
               href="/workshops"
             >
-              <div className="mt-5 pt-4 border-t text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-amber)" }}>
+              <div className="mt-5 border-t border-border pt-4 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold-deep)" }}>
                 From $500/person
               </div>
             </Card>
@@ -111,7 +112,7 @@ export default function Home() {
               description="Your AI answers with an independent, seasoned voice — every response draws on a knowledge base connected to the tools your team already uses."
               href="/jester-hat"
             >
-              <div className="mt-5 pt-4 border-t text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-amber)" }}>
+              <div className="mt-5 border-t border-border pt-4 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold-deep)" }}>
                 $99/month
               </div>
             </Card>
@@ -123,7 +124,7 @@ export default function Home() {
       <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-royal)" }}>
         <div className="container">
           <div className="max-w-2xl mb-12">
-            <p className="eyebrow" style={{ color: "var(--color-amber)" }}>The Flywheel</p>
+            <p className="eyebrow" style={{ color: "var(--color-gold)" }}>The Flywheel</p>
             <h2 className="heading-section mb-5" style={{ color: "var(--color-cream)" }}>
               The engine that keeps compounding
             </h2>
@@ -136,13 +137,13 @@ export default function Home() {
             {FLYWHEEL.map((step) => (
               <div key={step.n} className="flex gap-4">
                 <div
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold"
-                  style={{ backgroundColor: "var(--color-brand)", color: "var(--color-cream)" }}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center border border-gold font-display text-sm font-semibold"
+                  style={{ color: "var(--color-gold)" }}
                 >
                   {step.n}
                 </div>
                 <div>
-                  <h3 className="mb-1.5 text-sm font-bold uppercase tracking-wide" style={{ color: "var(--color-amber)" }}>
+                  <h3 className="mb-1.5 text-sm font-semibold uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
                     {step.label}
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(241,239,232,0.65)" }}>
@@ -175,7 +176,7 @@ export default function Home() {
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 {PROOF.map((p) => (
                   <div key={p.title} className="card">
-                    <h3 className="heading-subsection mb-2" style={{ color: "var(--color-amber)" }}>{p.title}</h3>
+                    <h3 className="heading-subsection mb-2" style={{ color: "var(--color-gold-deep)" }}>{p.title}</h3>
                     <p className="text-sm leading-relaxed text-muted-foreground">
                       {p.detail}
                     </p>
@@ -188,7 +189,7 @@ export default function Home() {
       </Section>
 
       {/* Testimonial */}
-      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--secondary)" }}>
+      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="container max-w-3xl">
           <Testimonial
             quote="You bring the problem; you leave with the angle everyone missed — and the story that gets everyone moving on it."

@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Oswald, Open_Sans } from "next/font/google";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const oswald = Oswald({
+const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const openSans = Open_Sans({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -48,8 +50,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`bg-background text-foreground ${oswald.variable} ${openSans.variable}`}>
+    <html lang="en" className={`bg-background text-foreground ${fraunces.variable} ${instrumentSans.variable}`}>
       <body className="flex min-h-screen flex-col">
+        <div className="motley" aria-hidden="true" />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

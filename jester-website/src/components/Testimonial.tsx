@@ -13,21 +13,19 @@ export default function Testimonial({
 }: TestimonialProps) {
   return (
     <div className={`${className || ""}`}>
-      <blockquote
-        className="text-xl font-medium leading-relaxed md:text-2xl"
-        style={{ color: "var(--color-royal)" }}
-      >
+      <span className="block h-px w-24 bg-gold" aria-hidden="true" />
+      <blockquote className="mt-6 font-display text-2xl font-medium italic leading-relaxed text-cream md:text-3xl">
         {quote}
       </blockquote>
       {(author || role) && (
         <div className="mt-6">
           {author && (
-            <div className="text-sm font-semibold" style={{ color: "var(--color-purple)" }}>
+            <div className="text-sm font-semibold uppercase tracking-widest text-gold">
               {author}
             </div>
           )}
           {role && (
-            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+            <div className="mt-1 text-xs uppercase tracking-wider text-cream/60">
               {role}
             </div>
           )}

@@ -44,20 +44,19 @@ export default function TransformationSection({
             {items.map((item, i) => (
               <div key={i} className="flex items-center gap-6">
                 <span
-                  className="flex h-8 w-8 shrink-0 items-center justify-center text-sm font-bold"
-                  style={{ color: "#4A2580" }}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center border border-gold-deep/60 font-display text-sm font-semibold text-gold-deep"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
                   <div
                     className="text-lg font-medium line-through sm:w-48"
-                    style={{ color: "#9AA0A6", textDecorationColor: "rgba(214,69,69,0.5)" }}
+                    style={{ color: "#9AA0A6", textDecorationColor: "rgba(179,57,47,0.5)" }}
                   >
                     {item.before}
                   </div>
                   <ArrowIcon />
-                  <div className="heading-subsection text-xl font-bold sm:flex-1">
+                  <div className="heading-subsection text-xl font-semibold sm:flex-1">
                     {item.after}
                   </div>
                 </div>

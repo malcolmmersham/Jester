@@ -64,7 +64,7 @@ export default function JesterHat() {
           <div className="mx-auto max-w-xl text-center">
             <p className="eyebrow">Pricing</p>
             <h2 className="heading-section mb-4">One simple plan</h2>
-            <div className="mb-4 text-5xl font-bold" style={{ color: "var(--color-brand)" }}>
+            <div className="mb-4 text-5xl font-semibold" style={{ color: "var(--color-gold-deep)" }}>
               $99<span className="text-2xl text-muted-foreground">/month</span>
             </div>
             <p className="text-lg leading-relaxed text-muted-foreground">
@@ -79,10 +79,10 @@ export default function JesterHat() {
       </Section>
 
       {/* Founding cohort */}
-      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-royal)" }}>
+      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow" style={{ color: "var(--color-amber)" }}>Early Access</p>
+            <p className="eyebrow" style={{ color: "var(--color-gold)" }}>Early Access</p>
             <h2 className="heading-section mb-5" style={{ color: "var(--color-cream)" }}>
               Currently onboarding founding customers
             </h2>
@@ -90,7 +90,7 @@ export default function JesterHat() {
               Early access is available for a limited number of organisations. Get in touch to be
               among the first with an independent, seasoned voice behind your team&apos;s AI.
             </p>
-            <Link href="/contact" className="btn btn-white">
+            <Link href="/contact" className="btn btn-ghost mt-8">
               Join the founding cohort
             </Link>
           </div>

@@ -55,18 +55,18 @@ export default function CaseStudies() {
             {CASES.map((c) => (
               <div key={c.title} className="card group">
                 <div
-                  className="mb-3 inline-block border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider rounded-sm"
-                  style={{ borderColor: "var(--color-amber)", color: "var(--color-amber)" }}
+                  className="mb-3 inline-block border px-2.5 py-0.5 font-display text-xs font-semibold uppercase tracking-wider"
+                  style={{ borderColor: "var(--color-gold-deep)", color: "var(--color-gold-deep)" }}
                 >
                   {c.tag}
                 </div>
-                <h3 className="mb-2 text-lg font-bold">{c.title}</h3>
+                <h3 className="mb-2 text-lg font-semibold">{c.title}</h3>
                 <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                   {c.desc}
                 </p>
                 <div
-                  className="border-l-4 pl-4 text-sm leading-relaxed"
-                  style={{ borderColor: "var(--color-brand)", color: "var(--color-purple)" }}
+                  className="border-l-4 pl-4 font-display text-sm leading-relaxed font-medium"
+                  style={{ borderColor: "var(--color-purple)", color: "var(--color-purple)" }}
                 >
                   {c.detail}
                 </div>
@@ -77,7 +77,7 @@ export default function CaseStudies() {
       </Section>
 
       {/* Testimonial */}
-      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--secondary)" }}>
+      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="container max-w-3xl">
           <Testimonial
             quote="Nothing you invest in goes to waste — every engagement leaves behind a case study, a tool, or a framework your organisation keeps."

@@ -134,7 +134,7 @@ export default function Advisory() {
                 </li>
               </ul>
               <div className="mt-auto">
-                <div className="mb-4 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-amber)" }}>
+                <div className="mb-4 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-gold-deep)" }}>
                   From $1,500 / day
                 </div>
                 <Link href="/contact" className="btn btn-outline">

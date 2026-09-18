@@ -93,8 +93,8 @@ export default function Workshops() {
             {WORKSHOPS.map((w) => (
               <div key={w.name} className="card group">
                 <div
-                  className="mb-3 inline-block border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider rounded-sm"
-                  style={{ borderColor: "var(--color-brand)", color: "var(--color-brand)" }}
+                  className="mb-3 inline-block border px-2.5 py-0.5 font-display text-xs font-semibold uppercase tracking-wider"
+                  style={{ borderColor: "var(--color-gold-deep)", color: "var(--color-gold-deep)" }}
                 >
                   {w.kicker}
                 </div>
@@ -102,11 +102,11 @@ export default function Workshops() {
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {w.desc}
                 </p>
-                <div className="mt-5 flex items-center justify-between border-t pt-4">
+                <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                   <span className="text-xs text-muted-foreground">
                     Cohort or org licence
                   </span>
-                  <span className="text-xs font-semibold" style={{ color: "var(--color-amber)" }}>
+                  <span className="text-xs font-semibold" style={{ color: "var(--color-gold-deep)" }}>
                     $500–$2,500/person
                   </span>
                 </div>
@@ -117,23 +117,23 @@ export default function Workshops() {
       </Section>
 
       {/* Proof point */}
-      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-royal)" }}>
+      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="container">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
-              <p className="eyebrow" style={{ color: "var(--color-amber)" }}>The Proof</p>
+              <p className="eyebrow" style={{ color: "var(--color-gold)" }}>The Proof</p>
               <h2 className="heading-section mb-5" style={{ color: "var(--color-cream)" }}>
                 Built on real advisory experience
               </h2>
             </div>
             <div className="space-y-5">
-              <div className="border-l-4 pl-5" style={{ borderColor: "var(--color-amber)" }}>
+              <div className="border-l-4 pl-5" style={{ borderColor: "var(--color-gold)" }}>
                 <p className="text-lg leading-relaxed" style={{ color: "rgba(241,239,232,0.75)" }}>
                   Complex data gets translated into decisions at the senior level — the kind of
                   clarity that has been pressure-tested with boards and executives.
                 </p>
               </div>
-              <div className="border-l-4 pl-5" style={{ borderColor: "var(--color-amber)" }}>
+              <div className="border-l-4 pl-5" style={{ borderColor: "var(--color-gold)" }}>
                 <p className="text-lg leading-relaxed" style={{ color: "rgba(241,239,232,0.75)" }}>
                   Community stays at the heart of the data, at scale — the frameworks behind these
                   workshops are the same ones that have already been deployed in the real world.

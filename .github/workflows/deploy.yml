@@ -2,7 +2,7 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [main]
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:
@@ -23,9 +23,10 @@ jobs:
           cache-dependency-path: jester-website/package-lock.json
       - run: npm ci
       - run: npm run build
-      - uses: cloudflare/wrangler-action@v3
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: jester-website
-          command: pages deploy out --project-name jester-website --branch main
+          command: pages deploy out --project-name jester-website --branch "${{ github.ref == 'refs/heads/main' && 'main' || github.ref_name }}"

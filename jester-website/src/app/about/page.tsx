@@ -106,10 +106,10 @@ export default function About() {
       />
 
       {/* Working style */}
-      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-royal)" }}>
+      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="container">
           <div className="max-w-2xl mb-12">
-            <p className="eyebrow" style={{ color: "var(--color-amber)" }}>The Secret Power</p>
+            <p className="eyebrow" style={{ color: "var(--color-gold)" }}>The Secret Power</p>
             <h2 className="heading-section mb-5" style={{ color: "var(--color-cream)" }}>
               Reading the room, choosing the moment
             </h2>
@@ -121,8 +121,8 @@ export default function About() {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-            <div className="border p-7 rounded-lg" style={{ borderColor: "rgba(239,159,39,0.3)" }}>
-              <h3 className="mb-2 text-base font-bold uppercase tracking-wide" style={{ color: "var(--color-amber)" }}>
+            <div className="border p-7" style={{ borderColor: "rgba(239,159,39,0.3)" }}>
+              <h3 className="mb-2 font-display text-base font-semibold uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
                 Direct
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(241,239,232,0.65)" }}>
@@ -130,8 +130,8 @@ export default function About() {
                 parts that are comfortable to say.
               </p>
             </div>
-            <div className="border p-7 rounded-lg" style={{ borderColor: "rgba(239,159,39,0.3)" }}>
-              <h3 className="mb-2 text-base font-bold uppercase tracking-wide" style={{ color: "var(--color-amber)" }}>
+            <div className="border p-7" style={{ borderColor: "rgba(239,159,39,0.3)" }}>
+              <h3 className="mb-2 font-display text-base font-semibold uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
                 Subtle
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(241,239,232,0.65)" }}>
@@ -139,8 +139,8 @@ export default function About() {
                 too early, not a day too late.
               </p>
             </div>
-            <div className="border p-7 rounded-lg" style={{ borderColor: "rgba(239,159,39,0.3)" }}>
-              <h3 className="mb-2 text-base font-bold uppercase tracking-wide" style={{ color: "var(--color-amber)" }}>
+            <div className="border p-7" style={{ borderColor: "rgba(239,159,39,0.3)" }}>
+              <h3 className="mb-2 font-display text-base font-semibold uppercase tracking-widest" style={{ color: "var(--color-gold)" }}>
                 Human
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(241,239,232,0.65)" }}>
@@ -153,7 +153,7 @@ export default function About() {
       </Section>
 
       {/* Testimonial */}
-      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--secondary)" }}>
+      <Section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-ink)" }}>
         <div className="container max-w-3xl">
           <Testimonial
             quote="Here's the signal, here's what it means, and here's where we move next."

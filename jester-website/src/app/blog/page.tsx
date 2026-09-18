@@ -48,8 +48,8 @@ export default function Blog() {
               <article key={p.title} className="card group flex flex-col">
                 <div className="mb-4">
                   <span
-                    className="inline-block border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider rounded-sm"
-                    style={{ borderColor: "var(--color-brand)", color: "var(--color-brand)" }}
+                    className="inline-block border px-2.5 py-0.5 font-display text-xs font-semibold uppercase tracking-wider"
+                    style={{ borderColor: "var(--color-gold-deep)", color: "var(--color-gold-deep)" }}
                   >
                     {p.category}
                   </span>
@@ -57,7 +57,7 @@ export default function Blog() {
                 <time className="mb-2 text-xs font-semibold text-muted-foreground">
                   {p.readTime}
                 </time>
-                <h3 className="mb-2 text-lg font-bold">{p.title}</h3>
+                <h3 className="mb-2 text-lg font-semibold">{p.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {p.desc}
                 </p>
