@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jester concept B — floppy jester hat">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1A0D2E"/>
+  <path d="M26 38 C21 33 15 30 9 29.5 L9.8 26.2 C16 26.8 22 30.5 27 36 Z" fill="#F1EFE8"/>
+  <path d="M38 38 C43 33 49 30 55 29.5 L54.2 26.2 C48 26.8 42 30.5 37 36 Z" fill="#F1EFE8"/>
+  <path d="M27 38 C28 28 30 19 34 10.5 L37 12 C34 20 32.5 28.5 32.5 38 Z" fill="#F1EFE8"/>
+  <circle cx="8.5" cy="25.8" r="4" fill="#EF9F27"/>
+  <circle cx="55.5" cy="25.8" r="4" fill="#EF9F27"/>
+  <circle cx="36" cy="9.5" r="4" fill="#EF9F27"/>
+  <rect x="15" y="38" width="34" height="8" rx="2.5" fill="#F1EFE8"/>
+</svg>

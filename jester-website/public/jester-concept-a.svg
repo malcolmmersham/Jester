@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jester concept A — abstract J mark">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1A0D2E"/>
+  <path d="M19 21 H45 V40 c0 7.5-5.5 11-12 11-6 0-11-3.5-11-10" fill="none" stroke="#F1EFE8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 22 L50 6.5 L48.5 23.5 Z" fill="#F1EFE8"/>
+  <circle cx="51" cy="8" r="4" fill="#EF9F27"/>
+</svg>
