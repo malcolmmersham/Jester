@@ -23,6 +23,7 @@ export default function Footer() {
             <h4 className="footer-heading">Insights</h4>
             <Link href="/case-studies" className="footer-link">Case Studies</Link>
             <Link href="/blog" className="footer-link">Blog</Link>
+            <Link href="/methodology" className="footer-link">Methodology</Link>
           </div>
           <div>
             <h4 className="footer-heading">Company</h4>

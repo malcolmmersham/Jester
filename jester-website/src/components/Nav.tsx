@@ -93,6 +93,10 @@ export default function Nav() {
             </div>
           </div>
 
+          <Link href="/methodology" className={`nav-link ${isCurrent(pathname, "/methodology") ? "text-primary" : ""}`}>
+            Methodology
+          </Link>
+
           <Link href="/about" className={`nav-link ${isCurrent(pathname, "/about") ? "text-primary" : ""}`}>
             About
           </Link>
@@ -150,6 +154,10 @@ export default function Nav() {
                 {s.label}
               </Link>
             ))}
+            <div className="my-2 border-t border-cream/15" />
+            <Link href="/methodology" className="nav-link" onClick={() => setMobileOpen(false)}>
+              Methodology
+            </Link>
             <div className="my-2 border-t border-cream/15" />
             <Link href="/about" className="nav-link" onClick={() => setMobileOpen(false)}>
               About
