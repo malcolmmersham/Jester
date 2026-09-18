@@ -76,7 +76,13 @@ const nodeY = (n: SimNode) => (typeof n.y === "number" ? n.y : 0);
 export default function MethodologyGraph({ data }: { data: GraphData }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const simRef = useRef<ReturnType<typeof forceSimulation<SimNode>> | null>(null);
-  const dragRef = useRef<{ id: string; startX: number; startY: number; captured: boolean } | null>(null);
+  const dragRef = useRef<{
+    id: string;
+    startX: number;
+    startY: number;
+    captured: boolean;
+    moved: boolean;
+  } | null>(null);
 
   const [reduced, setReduced] = useState(false);
   const [, setFrame] = useState(0);
@@ -161,12 +167,22 @@ export default function MethodologyGraph({ data }: { data: GraphData }) {
   const beginDrag = (e: React.PointerEvent, n: SimNode) => {
     if (reduced) return;
     const p = toViewBox(svgRef.current!, e.clientX, e.clientY);
-    dragRef.current = { id: n.id, startX: p.x, startY: p.y, captured: false };
+    dragRef.current = {
+      id: n.id,
+      startX: p.x,
+      startY: p.y,
+      captured: false,
+      moved: false,
+    };
   };
 
   const dragMove = (e: React.PointerEvent) => {
     const d = dragRef.current;
     if (!d) return;
+    if (e.buttons === 0) {
+      dragRef.current = null;
+      return;
+    }
     const n = nodes.find((c) => c.id === d.id);
     const svg = svgRef.current;
     if (!n || !svg) return;
@@ -180,6 +196,7 @@ export default function MethodologyGraph({ data }: { data: GraphData }) {
         // capture unavailable — keep tracking via bubbling moves
       }
       d.captured = true;
+      d.moved = true;
       n.fx = p.x;
       n.fy = p.y;
       simRef.current?.alphaTarget(0.3).restart();
@@ -193,16 +210,23 @@ export default function MethodologyGraph({ data }: { data: GraphData }) {
   const dragEnd = () => {
     const d = dragRef.current;
     if (!d) return;
-    dragRef.current = null;
-    const n = d.captured ? nodes.find((c) => c.id === d.id) : null;
-    if (n) {
-      n.fx = null;
-      n.fy = null;
-      simRef.current?.alphaTarget(0);
+    if (d.captured) {
+      const n = nodes.find((c) => c.id === d.id);
+      if (n) {
+        n.fx = null;
+        n.fy = null;
+        simRef.current?.alphaTarget(0);
+      }
     }
+    if (d.moved) return;
+    dragRef.current = null;
   };
 
   const clearOnCanvasClick = (e: React.MouseEvent<SVGSVGElement>) => {
+    if (dragRef.current?.moved) {
+      dragRef.current.moved = false;
+      return;
+    }
     if (e.target === e.currentTarget) setSelected(null);
   };
 
